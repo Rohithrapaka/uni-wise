@@ -3,8 +3,11 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
 import { TrendingUp, Moon, Heart, Award, BookOpen, Gamepad2 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Index = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="space-y-6">
       {/* Hero Section */}
@@ -15,10 +18,10 @@ const Index = () => {
             Your personal student hub for tracking progress, managing wellness, and unlocking your potential
           </p>
           <div className="flex gap-4">
-            <Button size="lg" variant="secondary">
+            <Button size="lg" variant="secondary" onClick={() => navigate('/profile')}>
               Get Started
             </Button>
-            <Button size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-primary">
+            <Button size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-primary" onClick={() => navigate('/')}>
               View Dashboard
             </Button>
           </div>
@@ -29,7 +32,7 @@ const Index = () => {
 
       {/* Quick Stats */}
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-        <Card className="card-soft-shadow">
+        <Card className="card-soft-shadow hover:shadow-lg transition-all cursor-pointer" onClick={() => navigate('/academics')}>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Today's Progress</CardTitle>
             <TrendingUp className="h-4 w-4 text-muted-foreground" />
@@ -40,7 +43,7 @@ const Index = () => {
           </CardContent>
         </Card>
 
-        <Card className="card-soft-shadow">
+        <Card className="card-soft-shadow hover:shadow-lg transition-all cursor-pointer" onClick={() => navigate('/sleep')}>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Sleep Quality</CardTitle>
             <Moon className="h-4 w-4 text-muted-foreground" />
@@ -51,7 +54,7 @@ const Index = () => {
           </CardContent>
         </Card>
 
-        <Card className="card-soft-shadow">
+        <Card className="card-soft-shadow hover:shadow-lg transition-all cursor-pointer" onClick={() => navigate('/stress')}>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Stress Level</CardTitle>
             <Heart className="h-4 w-4 text-muted-foreground" />
@@ -62,7 +65,7 @@ const Index = () => {
           </CardContent>
         </Card>
 
-        <Card className="card-soft-shadow">
+        <Card className="card-soft-shadow hover:shadow-lg transition-all cursor-pointer" onClick={() => navigate('/upskilling')}>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Learning Streak</CardTitle>
             <Award className="h-4 w-4 text-muted-foreground" />
@@ -148,29 +151,21 @@ const Index = () => {
         </CardHeader>
         <CardContent>
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-            <Button variant="outline" className="h-20 flex-col gap-2" asChild>
-              <a href="/academics">
-                <BookOpen className="w-6 h-6" />
-                <span>View Grades</span>
-              </a>
+            <Button variant="outline" className="h-20 flex-col gap-2" onClick={() => navigate('/academics')}>
+              <BookOpen className="w-6 h-6" />
+              <span>View Grades</span>
             </Button>
-            <Button variant="outline" className="h-20 flex-col gap-2" asChild>
-              <a href="/upskilling">
-                <TrendingUp className="w-6 h-6" />
-                <span>Find Courses</span>
-              </a>
+            <Button variant="outline" className="h-20 flex-col gap-2" onClick={() => navigate('/upskilling')}>
+              <TrendingUp className="w-6 h-6" />
+              <span>Find Courses</span>
             </Button>
-            <Button variant="outline" className="h-20 flex-col gap-2" asChild>
-              <a href="/games">
-                <Gamepad2 className="w-6 h-6" />
-                <span>Stress Relief</span>
-              </a>
+            <Button variant="outline" className="h-20 flex-col gap-2" onClick={() => navigate('/games')}>
+              <Gamepad2 className="w-6 h-6" />
+              <span>Stress Relief</span>
             </Button>
-            <Button variant="outline" className="h-20 flex-col gap-2" asChild>
-              <a href="/sleep">
-                <Moon className="w-6 h-6" />
-                <span>Sleep Tracker</span>
-              </a>
+            <Button variant="outline" className="h-20 flex-col gap-2" onClick={() => navigate('/sleep')}>
+              <Moon className="w-6 h-6" />
+              <span>Sleep Tracker</span>
             </Button>
           </div>
         </CardContent>
